@@ -21,3 +21,37 @@
 Реализуйте поиск трех компаний с наибольшей годовой прибылью.
 Выведите результат.
 """
+
+
+def find_max(list_obj: list, count: int):
+    def find_max_ind(list_obj: list):
+        res_ind = 0
+        for ind in range(len(list_obj)):
+            if list_obj[res_ind][1] < list_obj[ind][1]:
+                res_ind = ind
+        return res_ind
+    res = []
+    buf = list_obj.copy()
+    for i in range(count):
+        tmp_ind = find_max_ind(buf)
+        res.append(buf[tmp_ind])
+        buf.pop(tmp_ind)
+    return res
+
+
+def find_max_v2(list_obj: list, count: int):
+    buf = list_obj.copy()
+    buf = sorted(buf, key=lambda t: t[1], reverse=True)
+    return buf[:count]
+
+
+lst = [
+    ('Microsoft', 1500000),
+    ('Oracle', 1000000),
+    ('HP', 7500000),
+    ('Dell', 10000)
+]
+
+print(lst)
+print(find_max(lst, 3))
+print(find_max_v2(lst, 3))
