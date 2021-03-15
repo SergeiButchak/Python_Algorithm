@@ -26,3 +26,58 @@
 Для реализации хранилища можно применить любой подход,
 который вы придумаете, например, реализовать словарь.
 """
+
+
+# O(n)
+def auth(base: dict, login: str, pswd: str):
+    for el in base:  # O(n)
+        if login == el:  # O(1)
+            if not base[el][1]:  # O(1)
+                print("Требуестя активация учетной записи.")  # O(1)
+                return False  # O(1)
+            elif base[el][0] == pswd:  # O(1)
+                print("Авторизация пройдена")  # O(1)
+                return True  # O(1)
+            else:  # O(1)
+                print("Неверный пароль")  # O(1)
+                return False  # O(1)
+
+    print("Пользователь не найден")  # O(1)
+    return False  # O(1)
+
+
+# O(1)
+def auth_v2(base: dict, login: str, pswd: str):
+    user = base.get(login)  # O(1)
+    if user is None:  # O(1)
+        print("Пользователь не найден")  # O(1)
+        return False  # O(1)
+    if not user[1]:  # O(1)
+        print("Требуестя активация учетной записи.")  # O(1)
+        return False  # O(1)
+    elif user[0] == pswd:  # O(1)
+        print("Авторизация пройдена")  # O(1)
+        return True  # O(1)
+    else:  # O(1)
+        print("Неверный пароль")  # O(1)
+        return False  # O(1)
+
+
+users = {
+    "user1": ("dghlsdghal", True),
+    "user2": ("dghlsdghal", True),
+    "user3": ("dghlsdghal", False),
+    "user4": ("dghlsdghal", True),
+    "user5": ("dghlsdghal", True),
+}
+
+print(auth(users, "user1", "dghlsdgha"))
+print(auth(users, "user2", "dghlsdghal"))
+print(auth(users, "user3", "dghlsdghal"))
+print(auth(users, "user33", "dghlsdghal"))
+print(auth_v2(users, "user1", "dghlsdgha"))
+print(auth_v2(users, "user2", "dghlsdghal"))
+print(auth_v2(users, "user3", "dghlsdghal"))
+print(auth_v2(users, "user33", "dghlsdghal"))
+
+# auth_v2 эффективнее, т.к. имеет сложность O(1) против O(n) у auth
