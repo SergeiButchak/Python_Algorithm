@@ -24,29 +24,29 @@ import random
 
 # O(n)
 def find_min(lst_obj: list):
-    if len(lst_obj) > 0:
-        min_el = lst_obj[0]
-        for ind in range(1, len(lst_obj)):
-            if min_el > lst_obj[ind]:
-                min_el = lst_obj[ind]
-        return min_el
+    if len(lst_obj) > 0:  # O(1)
+        min_el = lst_obj[0]  # O(1)
+        for ind in range(1, len(lst_obj)):  # O(n)
+            if min_el > lst_obj[ind]:  # O(1)
+                min_el = lst_obj[ind]  # O(1)
+        return min_el  # O(1)
     else:
-        return None
+        return None  # O(1)
 
 
 # O(n^2)
 def find_min_v2(lst_obj: list):
-    def is_min(list_obj: list, el: int):
-        result = True
-        for ind in range(1, len(list_obj)):
-            if el > list_obj[ind]:
-                result = False
+    def is_min(list_obj: list, el: int):  # O(n)
+        result = True  # O(1)
+        for ind in range(1, len(list_obj)):  # O(n)
+            if el > list_obj[ind]:  # O(1)
+                result = False  # O(1)
 
-        return result
+        return result  # O(1)
 
-    for ind in range(1, len(lst_obj)):
-        if is_min(lst_obj, lst_obj[ind]):
-            return lst_obj[ind]
+    for ind in range(1, len(lst_obj)):  # O(n)
+        if is_min(lst_obj, lst_obj[ind]):  # O(n)
+            return lst_obj[ind]  # O(1)
 
 
 arr = list([random.randrange(1, 30) for el in range(1, 16)])
@@ -54,3 +54,5 @@ arr = list([random.randrange(1, 30) for el in range(1, 16)])
 print(arr)
 print(find_min(arr))
 print(find_min_v2(arr))
+
+# find_min эффективнее, т.к. имеет сложность O(n) против O(n^2) у find_min_v2
