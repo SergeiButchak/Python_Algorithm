@@ -12,3 +12,16 @@
 Подсказка:
 Каждый очередной элемент в 2 раза меньше предыдущего и имеет противоположный знак
 """
+
+
+def num_row(count: int):
+    if count == 1:
+        return 1
+    return 1/((-2) ** (count - 1)) + num_row(count - 1)
+
+
+print(num_row(1))
+print(num_row(2))
+print(num_row(3))
+print(num_row(4))
+print(num_row(5))
