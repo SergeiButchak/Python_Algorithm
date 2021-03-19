@@ -23,3 +23,16 @@
 и допускается комб-е - цикл и рекурсия
 """
 
+
+def print_symb(ind=32, count=0):
+    if 0 > ind or ind > 255:
+        return
+    print(f'{ind:3} - {chr(ind)}', end=' ')
+    if count % 10 == 9:
+        print()
+    if ind >= 127:
+        return
+    print_symb(ind + 1, count + 1)
+
+
+print_symb()
