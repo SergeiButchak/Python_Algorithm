@@ -15,3 +15,17 @@
 Решите через рекурсию. Решение через цикл не принимается.
 Для оценки Отлично в этом блоке необходимо выполнить 5 заданий из 7
 """
+
+
+def sum_num_series(number: int):
+    if number == 0:
+        return 0
+    return number + sum_num_series(number - 1)
+
+
+def check_sums(number: int):
+    return sum_num_series(number) == (number * (number + 1) / 2)
+
+
+for el in range(20):
+    print(f"{el} - {check_sums(el)}")
