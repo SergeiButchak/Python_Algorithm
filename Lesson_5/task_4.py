@@ -21,46 +21,6 @@ def fill_o_dict(obj: OrderedDict, count: int):
         obj[i] = i
 
 
-def func_d_1(test_dict):
-    test_dict.get(2)
-
-
-def func_d_2(test_dict):
-    test_dict.items()
-
-
-def func_d_3(test_dict):
-    test_dict.popitem()
-
-
-def func_d_4(test_dict):
-    test_dict.setdefault(4, 'Four')
-
-
-def func_d_5(test_dict):
-    test_dict.values()
-
-
-def func_od_1(test_ord_dict):
-    test_ord_dict.get(2)
-
-
-def func_od_2(test_ord_dict):
-    test_ord_dict.items()
-
-
-def func_od_3(test_ord_dict):
-    test_ord_dict.popitem()
-
-
-def func_od_4(test_ord_dict):
-    test_ord_dict.setdefault(4, 'Four')
-
-
-def func_od_5(test_ord_dict):
-    test_ord_dict.values()
-
-
 dct = dict()
 odct = OrderedDict()
 
