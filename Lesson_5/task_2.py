@@ -33,3 +33,31 @@ class HexNumber:
 hx = HexNumber
 hx + hx
 """
+
+from collections import deque
+
+
+def deque_to_str(dq: deque):
+    res = ''
+    for i in dq:
+        res += i
+    return res
+
+
+def add_hex(num_1: deque, num_2: deque):
+    res = int(deque_to_str(num_1), 16) + int(deque_to_str(num_2), 16)
+    res = f"{res:X}"
+    return deque(res)
+
+
+def mul_hex(num_1: deque, num_2: deque):
+    res = int(deque_to_str(num_1), 16) * int(deque_to_str(num_2), 16)
+    res = f"{res:X}"
+    return deque(res)
+
+
+first_num = deque(input('Введите первое число: '))
+second_num = deque(input('Введите второе число: '))
+
+print(list(add_hex(first_num, second_num)))
+print(list(mul_hex(first_num, second_num)))
