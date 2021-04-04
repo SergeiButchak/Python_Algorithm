@@ -45,3 +45,29 @@ for i in
 
 
 """
+from statistics import median
+from random import randint
+
+
+def shell_sort(data: list):
+    last_index = len(data) - 1
+    step = len(data)//2
+    while step > 0:
+        for i in range(step, last_index + 1, 1):
+            j = i
+            delta = j - step
+            while delta >= 0 and data[delta] > data[j]:
+                data[delta], data[j] = data[j], data[delta]
+                j = delta
+                delta = j - step
+        step //= 2
+    return data
+
+
+arr = [randint(1, 10) for i in range(15)]
+sorted_arr = shell_sort(arr.copy())
+mid = len(sorted_arr) // 2
+res = (sorted_arr[mid] + sorted_arr[~mid]) / 2
+print(arr)
+print(res)
+print(median(arr))
